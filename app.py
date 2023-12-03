@@ -12,7 +12,7 @@ conversation_history = [
 ]
 
 # Load your OpenAI API key from an environment variable
-openai.api_key = os.getenv('OPENAI_API_KEY', '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')
+openai.api_key = os.getenv('OPENAI_API_KEY', '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')
 
 @app.route('/openai', methods=['POST'])
 def call_openai():
@@ -42,7 +42,7 @@ def call_openai():
 def reset_conversation():
     global conversation_history
     conversation_history = [
-        {"role": "system", "content": "You are an AI acting as an interviewer. You will ask the user a series of interview questions, it should be strictly maximum of 5 questions and after that end the conversation by scoring the grammar, choice of words, and formality of the user's answer per question. Make sure to ask 1 question at a time only. If the user say something outside the interview, say something to continue the interview"}
+        {"role": "system", "content": "You are an AI acting as an interviewer. You will ask the user a series of interview questions, it should be strictly maximum of 5 questions and after that end the conversation, then score and evaluate the user's response by grammar, choice of words, and formality of the user's answer. Make sure to ask 1 question at a time only. If the user say something outside the interview, say something then continue the interview but if the user ask about career paths or interview tips, answer it then continue the interview"}
     ]
     return jsonify({'status': 'Conversation history reset'})
 
