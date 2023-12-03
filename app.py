@@ -6,7 +6,7 @@ import logging
 
 logging.basicConfig(level=logging.DEBUG)
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "https://career-center-tip.onrender.com/interview"}})
+CORS(app)
 conversation_history = [
     {"role": "system", "content": "You are an AI acting as an interviewer. You will ask the user a series of interview questions, it should be strictly maximum of 5 questions and after that end the conversation, then score and evaluate the user's response by grammar, choice of words, and formality of the user's answer. Make sure to ask 1 question at a time only. If the user say something outside the interview, say something then continue the interview but if the user ask about career paths or interview tips, answer it then continue the interview"}
 ]
