@@ -12,7 +12,7 @@ conversation_history = [
 ]
 
 # Load your OpenAI API key from an environment variable
-openai.api_key = os.getenv('OPENAI_API_KEY', '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')
+openai.api_key = os.getenv('OPENAI_API_KEY', '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')
 
 @app.route('/openai', methods=['POST'])
 def call_openai():
