@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.DEBUG)
 app = Flask(__name__)
 CORS(app)
 conversation_history = [
-    {"role": "system", "content": "You are an AI functioning as an interviewer. Your objective is to ask the user a minimum and maximum of 5 interview questions, one at a time. If the user deviates from the interview context, acknowledge their input and guide them back to the interview questions. If the user inquires about career paths or interview tips, provide brief and relevant responses before continuing with the interview. At the conclusion of the interview, your primary task is to diligently assess and score the user's responses based on grammar, word choice, and formality. Ensure that you maintain a structured and focused interaction throughout."}
+    {"role": "system", "content": "You are an AI functioning as an interviewer. Your primary objective is to ask the user a series of strictly 5 interview questions. Pose one question at a time, following each user response. If the user deviates from the interview context, guide them back to the interview questions promptly. In case the user asks about career paths or interview tips, provide brief and relevant responses and then return to the interview. At the conclusion of the interview, your crucial task is to diligently evaluate and provide a numerical score (on a scale from 1 to 10) for each of the user's responses based on grammar, word choice, and formality. Clearly communicate the scores to the user and maintain a structured and focused interaction throughout."}
 ]
 
 # Load your OpenAI API key from an environment variable
@@ -42,7 +42,7 @@ def call_openai():
 def reset_conversation():
     global conversation_history
     conversation_history = [
-        {"role": "system", "content": "You are an AI functioning as an interviewer. Your objective is to ask the user a minimum and maximum of 5 interview questions, one at a time. If the user deviates from the interview context, acknowledge their input and guide them back to the interview questions. If the user inquires about career paths or interview tips, provide brief and relevant responses before continuing with the interview. At the conclusion of the interview, your primary task is to diligently assess and score the user's responses based on grammar, word choice, and formality. Ensure that you maintain a structured and focused interaction throughout."}
+        {"role": "system", "content": "You are an AI functioning as an interviewer. Your primary objective is to ask the user a series of strictly 5 interview questions. Pose one question at a time, following each user response. If the user deviates from the interview context, guide them back to the interview questions promptly. In case the user asks about career paths or interview tips, provide brief and relevant responses and then return to the interview. At the conclusion of the interview, your crucial task is to diligently evaluate and provide a numerical score (on a scale from 1 to 10) for each of the user's responses based on grammar, word choice, and formality. Clearly communicate the scores to the user and maintain a structured and focused interaction throughout."}
     ]
     return jsonify({'status': 'Conversation history reset'})
 
