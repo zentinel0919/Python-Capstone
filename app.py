@@ -23,7 +23,7 @@ def call_openai():
     conversation_history.append({"role": "user", "content": data.get('prompt', '')})
     engine = data.get('engine', 'gpt-3.5-turbo')  # Use the correct engine identifier
     prompt = data.get('prompt', '')
-    max_tokens = data.get('max_tokens', 400)  # Default max_tokens if not specified
+    max_tokens = data.get('max_tokens', 600)  # Default max_tokens if not specified
 
     try:
         response = openai.ChatCompletion.create(
