@@ -8,8 +8,17 @@ logging.basicConfig(level=logging.DEBUG)
 app = Flask(__name__)
 CORS(app)
 conversation_history = [
-        {"role": "system", "content": "You are an AI functioning as an interviewer. Your primary objective is to ask the user a series of strictly 5 interview questions. Pose one question at a time, following each user response. If the user deviates from the interview context, guide them back to the interview questions promptly. In case the user asks about career paths or interview tips, provide brief and relevant responses and then return to the interview. At the conclusion of the interview, your crucial task is to diligently evaluate and provide a numerical score (on a scale from 1 to 100) for the whole user's responses based on grammar, word choice, formality, and overall. Clearly communicate the scores to the user and maintain a structured and focused interaction throughout."},
-        {"role": "system", "content": "Now, let's create an assessment table. Please provide your assessment for the following criteria:\n\n| Criteria          | Rating | Comments                              |\n|-------------------|--------|---------------------------------------|\n| Grammar     |        |                                       |\n| Choice of words    |        |                                       |\n| Formality        |        |                                       |\n| Overall Performance|        |                                       |"}
+            {"role": "system", "content": "You are an AI functioning as an interviewer. Your primary objective is to ask the user a series of strictly 5 interview questions. Pose one question at a time, following each user response. If the user deviates from the interview context, guide them back to the interview questions promptly. In case the user asks about career paths or interview tips, provide brief and relevant responses and then return to the interview. At the conclusion of the interview, your crucial task is to diligently evaluate and provide a numerical score (on a scale from 1 to 100) for the whole user's responses based on grammar, word choice, formality, and overall. Clearly communicate the scores to the user and maintain a structured and focused interaction throughout."},
+            {"role": "system", "content": "Now, let's create an assessment table. Please provide your assessment for the following criteria:" },
+            {"role": "system", "content": "|-------------------|--------|---------------------------------------|" },
+            {"role": "system", "content": "| Criteria          | Rating | Comments                              |" },
+            {"role": "system", "content": "|-------------------|--------|---------------------------------------|" },
+            {"role": "system", "content": "| Grammar           |        |                                       |" },
+            {"role": "system", "content": "| Choice of words   |        |                                       |" },
+            {"role": "system", "content": "| Formality         |        |                                       |" },
+            {"role": "system", "content": "| Overall           |        |                                       |" },
+            {"role": "system", "content": "| Choice of words   |        |                                       |" },
+            {"role": "system", "content": "|-------------------|--------|---------------------------------------|" },
 ]
 
 # Load your OpenAI API key from an environment variable
@@ -44,7 +53,16 @@ def reset_conversation():
     global conversation_history
     conversation_history = [
             {"role": "system", "content": "You are an AI functioning as an interviewer. Your primary objective is to ask the user a series of strictly 5 interview questions. Pose one question at a time, following each user response. If the user deviates from the interview context, guide them back to the interview questions promptly. In case the user asks about career paths or interview tips, provide brief and relevant responses and then return to the interview. At the conclusion of the interview, your crucial task is to diligently evaluate and provide a numerical score (on a scale from 1 to 100) for the whole user's responses based on grammar, word choice, formality, and overall. Clearly communicate the scores to the user and maintain a structured and focused interaction throughout."},
-            {"role": "system", "content": "Now, let's create an assessment table. Please provide your assessment for the following criteria:\n\n| Criteria          | Rating | Comments                              |\n|-------------------|--------|---------------------------------------|\n| Grammar     |        |                                       |\n| Choice of words    |        |                                       |\n| Formality        |        |                                       |\n| Overall Performance|        |                                       |"}
+            {"role": "system", "content": "Now, let's create an assessment table. Please provide your assessment for the following criteria:" },
+            {"role": "system", "content": "|-------------------|--------|---------------------------------------|" },
+            {"role": "system", "content": "| Criteria          | Rating | Comments                              |" },
+            {"role": "system", "content": "|-------------------|--------|---------------------------------------|" },
+            {"role": "system", "content": "| Grammar           |        |                                       |" },
+            {"role": "system", "content": "| Choice of words   |        |                                       |" },
+            {"role": "system", "content": "| Formality         |        |                                       |" },
+            {"role": "system", "content": "| Overall           |        |                                       |" },
+            {"role": "system", "content": "| Choice of words   |        |                                       |" },
+            {"role": "system", "content": "|-------------------|--------|---------------------------------------|" },
     ]
     return jsonify({'status': 'Conversation history reset'})
 
