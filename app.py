@@ -8,9 +8,19 @@ logging.basicConfig(level=logging.DEBUG)
 app = Flask(__name__)
 CORS(app)
 conversation_history = [
-    {"role": "system", "content": "You are an AI functioning as an interviewer. Your primary objective is to ask the user a series of questions. ask one at a time and end at the 5th question. If the user deviates from the interview context, guide them back to the interview questions promptly. In case the user asks about career paths or interview tips, provide brief and relevant responses and then return to the interview. At the conclusion of the interview, your crucial task is to diligently evaluate and provide a numerical score (on a scale from 1 to 100) for the whole user's responses based on grammar, word choice, formality, and overall. Clearly communicate the scores to the user and maintain a structured and focused interaction throughout."},
-    {"role": "system", "content": "Now, let's create an assessment table. You will now have to provide your assessment for the user interview response base on the following criteria, remember be strict: Criteria |Grammar| |Choice of words| |Formality| |Overall Performance| |Rating (on a scale from 1 to 100| |Comments|"}
-]
+        {"role": "system", "content": "You are an AI functioning as an interviewer. Your primary objective is to ask the user a series of questions. ask one at a time and end at the 5th question. If the user deviates from the interview context, guide them back to the interview questions promptly. In case the user asks about career paths or interview tips, provide brief and relevant responses and then return to the interview. At the conclusion of the interview, your crucial task is to diligently evaluate and provide a numerical score (on a scale from 1 to 100) for the whole user's responses based on grammar, word choice, formality, and overall. Clearly communicate the scores to the user and maintain a structured and focused interaction throughout."},
+        {"role": "system", "content": "For the first question (Question 1)"},
+        {"role": "user", "content": "answers"},
+        {"role": "system", "content": "For the second question (Question 2)"},
+        {"role": "user", "content": "answers"},
+        {"role": "system", "content": "For the third question (Question 3)"},
+        {"role": "user", "content": "answers"},
+        {"role": "system", "content": "For the fourth question (Question 4)"},
+        {"role": "user", "content": "answers"},
+        {"role": "system", "content": "For the fifth question (Question 5)"},
+        {"role": "user", "content": "answers"},
+        {"role": "system", "content": "Now, let's create an assessment table. You will now have to provide your assessment for the user interview response base on the following criteria, remember be strict: Criteria |Grammar| |Choice of words| |Formality| |Overall Performance| |Rating (on a scale from 1 to 100| |Comments|"}
+    ]  
 
 # Load your OpenAI API key from an environment variable
 openai.api_key = os.getenv('OPENAI_API_KEY')
@@ -44,6 +54,16 @@ def reset_conversation():
     global conversation_history
     conversation_history = [
         {"role": "system", "content": "You are an AI functioning as an interviewer. Your primary objective is to ask the user a series of questions. ask one at a time and end at the 5th question. If the user deviates from the interview context, guide them back to the interview questions promptly. In case the user asks about career paths or interview tips, provide brief and relevant responses and then return to the interview. At the conclusion of the interview, your crucial task is to diligently evaluate and provide a numerical score (on a scale from 1 to 100) for the whole user's responses based on grammar, word choice, formality, and overall. Clearly communicate the scores to the user and maintain a structured and focused interaction throughout."},
+        {"role": "system", "content": "For the first question (Question 1)"},
+        {"role": "user", "content": "answers"},
+        {"role": "system", "content": "For the second question (Question 2)"},
+        {"role": "user", "content": "answers"},
+        {"role": "system", "content": "For the third question (Question 3)"},
+        {"role": "user", "content": "answers"},
+        {"role": "system", "content": "For the fourth question (Question 4)"},
+        {"role": "user", "content": "answers"},
+        {"role": "system", "content": "For the fifth question (Question 5)"},
+        {"role": "user", "content": "answers"},
         {"role": "system", "content": "Now, let's create an assessment table. You will now have to provide your assessment for the user interview response base on the following criteria, remember be strict: Criteria |Grammar| |Choice of words| |Formality| |Overall Performance| |Rating (on a scale from 1 to 100| |Comments|"}
     ]     
     return jsonify({'status': 'Conversation history reset'})
